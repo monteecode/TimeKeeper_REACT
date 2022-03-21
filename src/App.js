@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import "./bootstrap/css/bootstrap-grid.css";
 import "./App.css";
 import Calendar from "./Calender";
 

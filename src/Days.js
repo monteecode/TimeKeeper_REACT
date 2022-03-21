@@ -3,7 +3,7 @@ import React from "react";
 export default class Days extends React.Component {
   render() {
     return (
-      <div>
+      <div className="col-lg-2">
         <form>
           <h3>{this.props.day}</h3>
           <label>Clock In</label>

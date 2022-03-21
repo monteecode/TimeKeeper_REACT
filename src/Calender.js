@@ -14,7 +14,7 @@ export default class Calendar extends React.Component {
     return (
       <>
         <section className="container">
-          <div className="calendar">{this.renderDays()}</div>
+          <div className="row">{this.renderDays()}</div>
         </section>
       </>
     );

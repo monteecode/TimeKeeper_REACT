@@ -5,7 +5,7 @@ export default class Days extends React.Component {
     return (
       <div>
         <form>
-          <h3>(Day number)</h3>
+          <h3>{this.props.day}</h3>
           <label>Clock In</label>
           <input type="time" className="clockIn" placeholder="Clock In" />
           <label>Clock Out</label>

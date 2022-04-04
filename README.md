@@ -11,7 +11,7 @@ This app saves on set of 'clock-in' and 'clock-out times per day then add up tho
 
 ## Getting Started
 
-- Fork and clone the Time Keeper backend app's [Ruby on Rails API](https://github.com/Monty7/timekeeper_react_backend). Install all app's associated gems by typing the command line 'bundle install'.
+- Fork and clone the Time Keeper backend app's [Ruby on Rails API](https://github.com/monteecode/TimeKeeper_API). Install all app's associated gems by typing the command line 'bundle install'.
 
 - Fork and clone the Time Keeper frontend React/Redux app. Run 'npm install'.
 

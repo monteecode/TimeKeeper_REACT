@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginButton from "./buttons/LoginButton";
+import LoginButton from "../buttons/LoginButton";
 import Header from "./Header";
 import DemoMessage from "./DemoMessage";
 import { fetchUser } from "../actions/login";

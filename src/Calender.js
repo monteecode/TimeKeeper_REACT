@@ -1,7 +1,10 @@
 import React from "react";
 import Days from "./forms/Days";
+import TimeTotal from "./TimeTotal";
+import LogoutInput from "./LogoutInput";
+import { connect } from "react-redux";
 
-export default class Calendar extends React.Component {
+class Calendar extends React.Component {
   renderDays() {
     let days = [];
     for (let i = 1; i <= 31; i++) {
@@ -13,9 +16,9 @@ export default class Calendar extends React.Component {
   render() {
     return (
       <>
-      <LogoutInput/>
+        <LogoutInput />
         <section className="container">
-        <TimeTotal/>
+          <TimeTotal />
           <div className="row gy-5">{this.renderDays()}</div>
         </section>
       </>
@@ -24,8 +27,7 @@ export default class Calendar extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user,
-})
+  user: state.user,
+});
 
-export default connect(mapStateToProps)(CalendarContainer)
-
+export default connect(mapStateToProps)(Calendar);

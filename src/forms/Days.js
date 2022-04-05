@@ -2,8 +2,12 @@ import React from "react";
 import { AddButton } from "../buttons/AddButton";
 import { UpdateButton } from "../buttons/UpdateButton";
 import { DeleteButton } from "../buttons/DeleteButton";
+import { connect } from "react-redux";
+import { addTime } from "../actions/addTimes";
+import { deleteTime } from "../actions/deleteTimes";
+import { updateTime } from "../actions/updateTimes";
 
-export default class Days extends React.Component {
+class Days extends React.Component {
   state = {
     clockIn: "",
     clockOut: "",
@@ -129,26 +133,56 @@ export default class Days extends React.Component {
           <label class="form-label">Clock In</label>
           <input
             type="time"
+            name="clockIn"
             className="clockIn form-control"
             placeholder="Clock In"
+            onChange={(event) => this.handleOnChange(event)}
           />
           <label>Clock Out</label>
 
           <input
             type="time"
+            name="clockOut"
             className="clockOut form-control"
             placeholder="Clock Out"
+            onChange={(event) => this.handleOnChange(event)}
           />
+
+          <div className="btn-group-sm">
+            {
+              //console.log(this.props.user.user_times)
+              this.state.date_hasTimes && (
+                <>
+                  <UpdateButton
+                    className="btn btn-outline-warning"
+                    updateTimes={(event) => this.handleOnUpdate(event)}
+                  />
+                  <DeleteButton
+                    className="btn btn-outline-danger"
+                    deleteTimes={(event) => this.handleOnDelete(event)}
+                  />
+                </>
+              )
+            }
+            {!this.state.date_hasTimes && (
+              <AddButton
+                className="btn btn-outline-success"
+                addTimes={(event) => this.handleOnAdd(event)}
+              />
+            )}
+          </div>
         </form>
-        <div className="btn-group-sm">
-          <AddButton className="btn btn-outline-success" />
-          <UpdateButton className="btn btn-outline-warning" />
-          <DeleteButton className="btn btn-outline-danger" />
-          <button>ADD</button>
-          <button>UPDATE</button>
-          <button>DELETE</button>
-        </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps, { addTime, updateTime, deleteTime })(
+  Days
+);

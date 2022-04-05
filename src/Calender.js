@@ -13,10 +13,19 @@ export default class Calendar extends React.Component {
   render() {
     return (
       <>
+      <LogoutInput/>
         <section className="container">
+        <TimeTotal/>
           <div className="row gy-5">{this.renderDays()}</div>
         </section>
       </>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+})
+
+export default connect(mapStateToProps)(CalendarContainer)
+

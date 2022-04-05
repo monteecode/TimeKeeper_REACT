@@ -1,5 +1,5 @@
 import React from "react";
-import Days from "./Days";
+import Days from "./forms/Days";
 
 export default class Calendar extends React.Component {
   renderDays() {

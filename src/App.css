@@ -18,3 +18,30 @@
 #welcomeUser button {
   margin: 10px 0 5px;
 }
+
+body {
+  background-image: url(./images/clock-background.png);
+  font-family: "Assistant", sans-serif;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+#sign_up {
+  display: flex;
+  flex-direction: column;
+}
+
+#sign_up button {
+  margin: 20px 0;
+}

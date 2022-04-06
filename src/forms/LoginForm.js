@@ -24,12 +24,13 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        {/* <Header /> */}
+      <section className="hero container">
+        <h1>TIMEKEEPER</h1>
         <form onSubmit={this.handleSubmit}>
           <div id="sign_up_in">
             <div id="sign_up">
               <input
+                className="form-control-lg"
                 type="text"
                 name="name"
                 id="sign_in_user"
@@ -41,7 +42,7 @@ class LoginForm extends Component {
             </div>
           </div>
         </form>
-      </div>
+      </section>
     );
   }
 }

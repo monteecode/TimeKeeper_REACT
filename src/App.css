@@ -5,3 +5,16 @@
 .btns {
   margin: 20px 0;
 }
+
+#welcomeUser {
+  display: flex;
+  justify-content: right;
+}
+
+#welcomeUser p {
+  margin: 40px;
+}
+
+#welcomeUser button {
+  margin: 10px 0 5px;
+}

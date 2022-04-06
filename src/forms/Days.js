@@ -149,25 +149,20 @@ class Days extends React.Component {
             onChange={(event) => this.handleOnChange(event)}
           />
 
-          <div className="btn-group-sm">
+          <div className="btn-group btns">
             {
               //console.log(this.props.user.user_times)
               this.state.date_hasTimes ? (
                 <>
                   <UpdateButton
-                    className="btn btn-outline-warning"
                     updateTimes={(event) => this.handleOnUpdate(event)}
                   />
                   <DeleteButton
-                    className="btn btn-outline-danger"
                     deleteTimes={(event) => this.handleOnDelete(event)}
                   />
                 </>
               ) : (
-                <AddButton
-                  className="btn btn-outline-success"
-                  addTimes={(event) => this.handleOnAdd(event)}
-                />
+                <AddButton addTimes={(event) => this.handleOnAdd(event)} />
               )
             }
           </div>

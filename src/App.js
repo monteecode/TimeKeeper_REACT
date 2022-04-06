@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { checkForUser } from "./actions/login";
 import { connect } from "react-redux";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./forms/LoginForm";
 import "./bootstrap/css/bootstrap-grid.css";
 import "./bootstrap/css/bootstrap.min.css";
 import "./App.css";

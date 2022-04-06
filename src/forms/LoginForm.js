@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LoginButton from "../buttons/LoginButton";
-import Header from "./Header";
-import DemoMessage from "./DemoMessage";
+// import Header from "./Header";
+// import DemoMessage from "./DemoMessage";
 import { fetchUser } from "../actions/login";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -25,7 +25,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <form onSubmit={this.handleSubmit}>
           <div id="sign_up_in">
             <div id="sign_up">
@@ -37,7 +37,7 @@ class LoginForm extends Component {
                 onChange={this.handleOnChange}
               />
               <LoginButton id="submit_user" />
-              <DemoMessage />
+              {/* <DemoMessage /> */}
             </div>
           </div>
         </form>

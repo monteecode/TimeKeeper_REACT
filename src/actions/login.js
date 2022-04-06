@@ -4,7 +4,10 @@ export const fetchUser = (nameObjFromState, history) => {
   return (dispatch) => {
     fetch(BASEURL + "/users", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify(nameObjFromState),
     })
       .then((resp) => resp.json())

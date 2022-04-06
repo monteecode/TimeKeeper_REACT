@@ -1,11 +1,11 @@
 import React from "react";
-import { AddButton } from "../buttons/AddButton";
-import { UpdateButton } from "../buttons/UpdateButton";
-import { DeleteButton } from "../buttons/DeleteButton";
+import AddButton from "../buttons/AddButton";
+import UpdateButton from "../buttons/UpdateButton";
+import DeleteButton from "../buttons/DeleteButton";
 import { connect } from "react-redux";
-import { addTime } from "../actions/addTimes";
-import { deleteTime } from "../actions/deleteTimes";
-import { updateTime } from "../actions/updateTimes";
+import { addTime } from "../actions/AddTimes";
+import { deleteTime } from "../actions/DeleteTimes";
+import { updateTime } from "../actions/UpdateTimes";
 
 class Days extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class Days extends React.Component {
     clockOut: "",
     capturedDate: this.props.day,
     date_hasTimes: false,
-    date_removeTimes: false,
+    // date_removeTimes: false,
   };
 
   componentDidMount() {
@@ -24,15 +24,16 @@ class Days extends React.Component {
     if (prevProps.user !== this.props.user) {
       this.fillInTimes();
     }
-
-    if (prevState.date_hasTimes !== this.state.date_hasTimes) {
-      this.setState((prevState) => {
-        return {
-          ...prevState,
-          date_hasTimes: !prevState.date_of_times,
-        };
-      });
-    }
+    // console.log("PREVSTATE DATE HAS TIMES--->", prevState.date_hasTimes);
+    // console.log("CURRENT STATE DATE HAS TIMES--->", this.state.date_hasTimes);
+    // if (prevState.date_hasTimes !== this.state.date_hasTimes) {
+    //   this.setState((prevState) => {
+    //     return {
+    //       ...prevState,
+    //       date_hasTimes: !prevState.date_of_times,
+    //     };
+    //   });
+    // }
   }
 
   findDay = () => {
@@ -101,7 +102,7 @@ class Days extends React.Component {
         ...prevState,
         clockIn: "",
         clockOut: "",
-        date_removeTimes: true,
+        date_hasTimes: false,
       };
     });
   }
@@ -114,14 +115,12 @@ class Days extends React.Component {
       this.state.clockIn,
       this.state.clockOut
     );
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        clockIn: "",
-        clockOut: "",
-        date_removeTimes: false,
-      };
-    });
+    // this.setState((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     // date_removeTimes: false,
+    //   };
+    // });
   }
 
   render() {
@@ -134,6 +133,7 @@ class Days extends React.Component {
           <input
             type="time"
             name="clockIn"
+            value={this.state.clockIn}
             className="clockIn form-control"
             placeholder="Clock In"
             onChange={(event) => this.handleOnChange(event)}
@@ -143,6 +143,7 @@ class Days extends React.Component {
           <input
             type="time"
             name="clockOut"
+            value={this.state.clockOut}
             className="clockOut form-control"
             placeholder="Clock Out"
             onChange={(event) => this.handleOnChange(event)}
@@ -151,7 +152,7 @@ class Days extends React.Component {
           <div className="btn-group-sm">
             {
               //console.log(this.props.user.user_times)
-              this.state.date_hasTimes && (
+              this.state.date_hasTimes ? (
                 <>
                   <UpdateButton
                     className="btn btn-outline-warning"
@@ -162,14 +163,13 @@ class Days extends React.Component {
                     deleteTimes={(event) => this.handleOnDelete(event)}
                   />
                 </>
+              ) : (
+                <AddButton
+                  className="btn btn-outline-success"
+                  addTimes={(event) => this.handleOnAdd(event)}
+                />
               )
             }
-            {!this.state.date_hasTimes && (
-              <AddButton
-                className="btn btn-outline-success"
-                addTimes={(event) => this.handleOnAdd(event)}
-              />
-            )}
           </div>
         </form>
       </div>

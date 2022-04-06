@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/login";
+import { logoutUser } from "./actions/login";
 
 const LogoutInput = (props) => {
   return (

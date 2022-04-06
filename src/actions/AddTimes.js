@@ -7,6 +7,7 @@ export const addTime = (userID, clock_in, clock_out, captured_date) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         clock_in: clock_in,

@@ -5,15 +5,22 @@ const TimeTotal = (props) => {
   const timeDifferenceInADay = (start, end) => {
     start = start.split(":");
     end = end.split(":");
-
-    end[0] = end[0] === "00" ? "24" : end[0];
-    if (end[0] < start[0]) {
-      alert("Clock In time must be before the clock out time.");
-      return 0;
-    }
-    let startTime = new Date(0, 0, 0, start[0], start[1], 0);
-    let endTime = new Date(0, 0, 0, end[0], end[1], 0);
-    return Math.abs(startTime.getTime() - endTime.getTime()); //seconds
+    console.log("Start--->", start);
+    console.log("END--->", end);
+    //end[0] = end[0] === "00" ? "24" : end[0];
+    // if (end[0] < start[0]) {
+    //   alert("Clock In time must be before the clock out time.");
+    //   return 0;
+    // }
+    let startTime = new Date(0, 0, 0, start[0], start[1], 0); //don't need
+    let endTime = new Date(0, 0, 0, end[0], end[1], 0); //don't need
+    console.log("MILLISECONDS FOR STARTIME", startTime.getTime());
+    console.log("MILLISECONDS FOR ENDTIME", endTime.getTime());
+    console.log(
+      "IS Start less than end",
+      Math.abs(startTime.getTime()) < Math.abs(endTime.getTime())
+    );
+    return Math.abs(startTime.getTime() - endTime.getTime()); //milliseconds
   };
 
   const calcTime = (data) => {
@@ -31,13 +38,13 @@ const TimeTotal = (props) => {
   };
 
   const convertTime = (timeSeconds) => {
-    let seconds,
-      minutes,
-      twelveHours,
+    let minutes,
       hours = 0;
-    seconds = (timeSeconds / 1000) % 60;
+    //seconds = (timeSeconds / 1000) % 60;
+
     minutes = (timeSeconds / (1000 * 60)) % 60;
-    hours = Math.floor((timeSeconds / (1000 * 60 * 60)) % 24);
+    hours = Math.floor(timeSeconds / 3600 / 1000);
+    //hours = Math.floor((timeSeconds / (1000 * 60 * 60)) % 24);
     return `${hours} HOURS, ${minutes} MINUTES`;
   };
   return (

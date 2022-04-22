@@ -1,5 +1,11 @@
 .days {
-  border: 1px solid black;
+  border: 1px solid rgb(121, 112, 35);
+  color: white;
+  background-color: rgb(1, 5, 68);
+}
+
+.container header {
+  margin: 25px 0;
 }
 
 .btns {
@@ -9,10 +15,13 @@
 #welcomeUser {
   display: flex;
   justify-content: right;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #welcomeUser p {
-  margin: 40px;
+  margin: 0 20px;
+  align-self: center;
 }
 
 #welcomeUser button {
